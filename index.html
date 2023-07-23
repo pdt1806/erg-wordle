@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ERG Wordle</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="script.js"></script>
+    <link rel="icon" href="lib/icon.png" />
+  </head>
+  <body>
+    <header>
+      <img src="lib/ERG-brand-black.png" alt="A game of Egg Recreates Game" />
+      <h1>Wordle</h1>
+    </header>
+    <table id="main">
+      <tr>
+        <td class="othercolumn">
+          <div id="myinfo">
+            <h2>Find me at</h2>
+            <div class="social">
+              <a
+                class="oneline"
+                href="https://github.com/pdt1806"
+                target="_blank"
+              >
+                <img src="lib/github.svg" alt="GitHub" />
+                <p>pdt1806</p>
+              </a>
+              <div class="oneline">
+                <img src="lib/discord.svg" alt="Discord" />
+                <p>pdteggman</p>
+              </div>
+              <a
+                class="oneline"
+                href="https://facebook.com/pdteggman"
+                target="_blank"
+              >
+                <img src="lib/facebook.svg" alt="Facebook" />
+                <p>Phúc Đầu Trứng</p>
+              </a>
+            </div>
+          </div>
+          <a href="https://www.buymeacoffee.com/pdteggman" target="_blank"
+            ><img
+              src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=💕&slug=pdteggman&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff"
+          /></a>
+          <p>since this website is ad-free :33</p>
+        </td>
+        <td>
+          <div>
+            <table id="game">
+              <tr>
+                <td>
+                  <div id="box" class="none"><p></p></div>
+                </td>
+                <td>
+                  <div id="box" class="none"><p></p></div>
+                </td>
+                <td>
+                  <div id="box" class="none"><p></p></div>
+                </td>
+                <td>
+                  <div id="box" class="none"><p></p></div>
+                </td>
+                <td>
+                  <div id="box" class="none"><p></p></div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div id="box" class="none"><p>T</p></div>
+                </td>
+                <td>
+                  <div id="box" class="none"><p>H</p></div>
+                </td>
+                <td>
+                  <div id="box" class="none"><p>I</p></div>
+                </td>
+                <td>
+                  <div id="box" class="none"><p>E</p></div>
+                </td>
+                <td>
+                  <div id="box" class="none"><p>F</p></div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div id="box" class="yellow"><p>A</p></div>
+                </td>
+                <td>
+                  <div id="box" class="yellow"><p>A</p></div>
+                </td>
+                <td>
+                  <div id="box" class="yellow"><p>A</p></div>
+                </td>
+                <td>
+                  <div id="box" class="yellow"><p>A</p></div>
+                </td>
+                <td>
+                  <div id="box" class="yellow"><p>A</p></div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div id="box" class="grey"><p>A</p></div>
+                </td>
+                <td>
+                  <div id="box" class="grey"><p>A</p></div>
+                </td>
+                <td>
+                  <div id="box" class="grey"><p>A</p></div>
+                </td>
+                <td>
+                  <div id="box" class="grey"><p>A</p></div>
+                </td>
+                <td>
+                  <div id="box" class="grey"><p>A</p></div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div id="box" class="green"><p>A</p></div>
+                </td>
+                <td>
+                  <div id="box" class="green"><p>A</p></div>
+                </td>
+                <td>
+                  <div id="box" class="green"><p>A</p></div>
+                </td>
+                <td>
+                  <div id="box" class="green"><p>A</p></div>
+                </td>
+                <td>
+                  <div id="box" class="green"><p>A</p></div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div id="box" class="green"><p>A</p></div>
+                </td>
+                <td>
+                  <div id="box" class="green"><p>A</p></div>
+                </td>
+                <td>
+                  <div id="box" class="green"><p>A</p></div>
+                </td>
+                <td>
+                  <div id="box" class="green"><p>A</p></div>
+                </td>
+                <td>
+                  <div id="box" class="green"><p>A</p></div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        <td>
+          <div class="othercolumn">
+            <h2>What makes ERG Wordle different from the others?</h2>
+            <ul>
+              <li>
+                The word is picked randomly, and is different everytime you
+                play.
+              </li>
+              <li>
+                There are unlimited sessions, you can play as many times as you
+                want.
+              </li>
+              <li>
+                This game is client-side, so you can play it offline by saving
+                the website (Ctrl + S).
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <table id="keyboard">
+            <tr>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>Q</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>W</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>E</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>R</p>
+                </div>
+              </td>
+
+              <td>
+                <div id="key" class="light-grey">
+                  <p>T</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>Y</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>U</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>I</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>O</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>P</p>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>A</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>S</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>D</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>F</p>
+                </div>
+              </td>
+
+              <td>
+                <div id="key" class="light-grey">
+                  <p>G</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>H</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>J</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>K</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>L</p>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>Z</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>X</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>C</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>V</p>
+                </div>
+              </td>
+
+              <td>
+                <div id="key" class="light-grey">
+                  <p>B</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>N</p>
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <p>M</p>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div id="key" class="light-grey">
+                  <img src="lib/backspace.png" />
+                </div>
+              </td>
+              <td>
+                <div id="key" class="light-grey">
+                  <img src="lib/enter.png" />
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  </body>
+</html>

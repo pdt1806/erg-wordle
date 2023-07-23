@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Noto+Sans:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Noto+Sans:wght@700&family=Roboto&display=swap");
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+
+h1 {
+  font-family: "Lilita One", cursive;
+  font-weight: 300;
+  font-size: 60px;
+  margin: 0;
+  padding: 10px 0 20px 0;
+}
+
+header img {
+  width: 150px;
+  margin: 0;
+  padding: 0;
+}
+
+.oneline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#main {
+  table-layout: fixed;
+  width: 90%;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  text-align: left;
+}
+
+li {
+  margin: 10px 0 10px 0;
+}
+
+#myinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-bottom: 50px;
+}
+
+#myinfo img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.othercolumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+#box {
+  border-radius: 5%;
+  height: 60px;
+  width: 60px;
+  height: 0;
+  padding-top: 100%;
+  position: relative;
+}
+
+#box p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-size: 40px;
+  font-family: "Noto Sans", sans-serif;
+}
+
+#key {
+  border-radius: 5%;
+  height: 10px;
+  width: 35px;
+  padding-top: 100%;
+  position: relative;
+  border: none;
+  outline: none;
+}
+
+#key p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-size: 20px;
+  font-family: "Noto Sans", sans-serif;
+}
+
+#key img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  width: 20px;
+}
+
+.light-grey {
+  background-color: rgb(167, 167, 167);
+  color: white;
+}
+
+.grey {
+  background-color: grey;
+  color: white;
+}
+
+.green {
+  background-color: rgb(0, 179, 0);
+  color: white;
+}
+
+.yellow {
+  background-color: rgb(192, 163, 0);
+  color: white;
+}
+
+.none {
+  box-sizing: border-box;
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+}
+
+#game {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: separate;
+  border-spacing: 0.2em 0.5em;
+}
+
+#keyboard {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: separate;
+  border-spacing: 0.2em 0.5em;
+}
+
+#keyboard tr {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+#keyboard td {
+  margin-left: 1px;
+  margin-right: 1px;
+}
