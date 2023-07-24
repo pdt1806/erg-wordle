@@ -7,331 +7,351 @@
     <link rel="icon" href="lib/icon.png" />
   </head>
   <body>
-    <header>
-      <img src="lib/ERG-brand-black.png" alt="A game of Egg Recreates Game" />
-      <h1>Wordle</h1>
-    </header>
-    <table id="main">
-      <tr>
-        <td class="othercolumn">
-          <div id="myinfo">
-            <h2>Find me at</h2>
-            <div class="social">
-              <a
-                class="oneline"
-                href="https://github.com/pdt1806"
-                target="_blank"
-              >
-                <img src="lib/github.svg" alt="GitHub" />
-                <p>pdt1806</p>
-              </a>
-              <div class="oneline">
-                <img src="lib/discord.svg" alt="Discord" />
-                <p>pdteggman</p>
+    <div id="main">
+      <div class="mainpage">
+        <header>
+          <img
+            src="lib/ERG-brand-black.png"
+            alt="A game of Egg Recreates Game"
+          />
+          <h1>Wordle</h1>
+        </header>
+        <table id="mainLayout">
+          <tr>
+            <h2 id="fault" class="hide" style="color: red">
+              Not in word list!
+            </h2>
+          </tr>
+          <tr>
+            <td class="othercolumn">
+              <div id="myinfo">
+                <h2>Find me at</h2>
+                <div class="social">
+                  <a
+                    class="oneline"
+                    href="https://github.com/pdt1806"
+                    target="_blank"
+                  >
+                    <img src="lib/github.svg" alt="GitHub" />
+                    <p>pdt1806</p>
+                  </a>
+                  <div class="oneline">
+                    <img src="lib/discord.svg" alt="Discord" />
+                    <p>pdteggman</p>
+                  </div>
+                  <a
+                    class="oneline"
+                    href="https://facebook.com/pdteggman"
+                    target="_blank"
+                  >
+                    <img src="lib/facebook.svg" alt="Facebook" />
+                    <p>Phúc Đầu Trứng</p>
+                  </a>
+                </div>
               </div>
-              <a
-                class="oneline"
-                href="https://facebook.com/pdteggman"
-                target="_blank"
-              >
-                <img src="lib/facebook.svg" alt="Facebook" />
-                <p>Phúc Đầu Trứng</p>
-              </a>
-            </div>
-          </div>
-          <a href="https://www.buymeacoffee.com/pdteggman" target="_blank"
-            ><img
-              src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=💕&slug=pdteggman&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff"
-          /></a>
-          <p>since this website is ad-free :33</p>
-        </td>
-        <td>
-          <div>
-            <table id="game">
-              <tr>
-                <td>
-                  <div id="box" class="none"><p></p></div>
-                </td>
-                <td>
-                  <div id="box" class="none"><p></p></div>
-                </td>
-                <td>
-                  <div id="box" class="none"><p></p></div>
-                </td>
-                <td>
-                  <div id="box" class="none"><p></p></div>
-                </td>
-                <td>
-                  <div id="box" class="none"><p></p></div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div id="box" class="none"><p>T</p></div>
-                </td>
-                <td>
-                  <div id="box" class="none"><p>H</p></div>
-                </td>
-                <td>
-                  <div id="box" class="none"><p>I</p></div>
-                </td>
-                <td>
-                  <div id="box" class="none"><p>E</p></div>
-                </td>
-                <td>
-                  <div id="box" class="none"><p>F</p></div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div id="box" class="yellow"><p>A</p></div>
-                </td>
-                <td>
-                  <div id="box" class="yellow"><p>A</p></div>
-                </td>
-                <td>
-                  <div id="box" class="yellow"><p>A</p></div>
-                </td>
-                <td>
-                  <div id="box" class="yellow"><p>A</p></div>
-                </td>
-                <td>
-                  <div id="box" class="yellow"><p>A</p></div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div id="box" class="grey"><p>A</p></div>
-                </td>
-                <td>
-                  <div id="box" class="grey"><p>A</p></div>
-                </td>
-                <td>
-                  <div id="box" class="grey"><p>A</p></div>
-                </td>
-                <td>
-                  <div id="box" class="grey"><p>A</p></div>
-                </td>
-                <td>
-                  <div id="box" class="grey"><p>A</p></div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div id="box" class="green"><p>A</p></div>
-                </td>
-                <td>
-                  <div id="box" class="green"><p>A</p></div>
-                </td>
-                <td>
-                  <div id="box" class="green"><p>A</p></div>
-                </td>
-                <td>
-                  <div id="box" class="green"><p>A</p></div>
-                </td>
-                <td>
-                  <div id="box" class="green"><p>A</p></div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div id="box" class="green"><p>A</p></div>
-                </td>
-                <td>
-                  <div id="box" class="green"><p>A</p></div>
-                </td>
-                <td>
-                  <div id="box" class="green"><p>A</p></div>
-                </td>
-                <td>
-                  <div id="box" class="green"><p>A</p></div>
-                </td>
-                <td>
-                  <div id="box" class="green"><p>A</p></div>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </td>
-        <td>
-          <div class="othercolumn">
-            <h2>What makes ERG Wordle different from the others?</h2>
-            <ul>
-              <li>
-                The word is picked randomly, and is different everytime you
-                play.
-              </li>
-              <li>
-                There are unlimited sessions, you can play as many times as you
-                want.
-              </li>
-              <li>
-                This game is client-side, so you can play it offline by saving
-                the website (Ctrl + S).
-              </li>
-            </ul>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>
-          <table id="keyboard">
-            <tr>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>Q</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>W</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>E</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>R</p>
-                </div>
-              </td>
+              <a href="https://www.buymeacoffee.com/pdteggman" target="_blank"
+                ><img
+                  src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=💕&slug=pdteggman&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff"
+              /></a>
+              <p>since this website is ad-free :33</p>
+            </td>
+            <td>
+              <div>
+                <table id="game">
+                  <tr id="row0">
+                    <td>
+                      <div id="box0" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box1" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box2" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box3" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box4" class="none box"><p></p></div>
+                    </td>
+                  </tr>
+                  <tr id="row1">
+                    <td>
+                      <div id="box5" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box6" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box7" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box8" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box9" class="none box"><p></p></div>
+                    </td>
+                  </tr>
+                  <tr id="row2">
+                    <td>
+                      <div id="box10" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box11" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box12" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box13" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box14" class="none box"><p></p></div>
+                    </td>
+                  </tr>
+                  <tr id="row3">
+                    <td>
+                      <div id="box15" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box16" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box17" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box18" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box19" class="none box"><p></p></div>
+                    </td>
+                  </tr>
+                  <tr id="row4">
+                    <td>
+                      <div id="box20" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box21" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box22" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box23" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box24" class="none box"><p></p></div>
+                    </td>
+                  </tr>
+                  <tr id="row5">
+                    <td>
+                      <div id="box25" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box26" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box27" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box28" class="none box"><p></p></div>
+                    </td>
+                    <td>
+                      <div id="box29" class="none box"><p></p></div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td>
+              <div class="othercolumn">
+                <h2>What makes ERG Wordle different from the others?</h2>
+                <ul>
+                  <li>
+                    The word is picked randomly, and is different everytime you
+                    play.
+                  </li>
+                  <li>
+                    There are unlimited sessions, you can play as many times as
+                    you want.
+                  </li>
+                  <li>
+                    This game is client-side, so you can play it offline by
+                    saving the website (Ctrl + S).
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <table id="keyboard">
+                <tr>
+                  <td>
+                    <div id="keyQ" class="light-grey key" onclick="letter('Q')">
+                      <p>Q</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyW" class="light-grey key" onclick="letter('W')">
+                      <p>W</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyE" class="light-grey key" onclick="letter('E')">
+                      <p>E</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyR" class="light-grey key" onclick="letter('R')">
+                      <p>R</p>
+                    </div>
+                  </td>
 
-              <td>
-                <div id="key" class="light-grey">
-                  <p>T</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>Y</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>U</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>I</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>O</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>P</p>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>A</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>S</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>D</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>F</p>
-                </div>
-              </td>
+                  <td>
+                    <div id="keyT" class="light-grey key" onclick="letter('T')">
+                      <p>T</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyY" class="light-grey key" onclick="letter('Y')">
+                      <p>Y</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyU" class="light-grey key" onclick="letter('U')">
+                      <p>U</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyI" class="light-grey key" onclick="letter('I')">
+                      <p>I</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyO" class="light-grey key" onclick="letter('O')">
+                      <p>O</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyP" class="light-grey key" onclick="letter('P')">
+                      <p>P</p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div id="keyA" class="light-grey key" onclick="letter('A')">
+                      <p>A</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyS" class="light-grey key" onclick="letter('S')">
+                      <p>S</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyD" class="light-grey key" onclick="letter('D')">
+                      <p>D</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyF" class="light-grey key" onclick="letter('F')">
+                      <p>F</p>
+                    </div>
+                  </td>
 
-              <td>
-                <div id="key" class="light-grey">
-                  <p>G</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>H</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>J</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>K</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>L</p>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>Z</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>X</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>C</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>V</p>
-                </div>
-              </td>
+                  <td>
+                    <div id="keyG" class="light-grey key" onclick="letter('G')">
+                      <p>G</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyH" class="light-grey key" onclick="letter('H')">
+                      <p>H</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyJ" class="light-grey key" onclick="letter('J')">
+                      <p>J</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyK" class="light-grey key" onclick="letter('K')">
+                      <p>K</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyL" class="light-grey key" onclick="letter('L')">
+                      <p>L</p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div id="keyZ" class="light-grey key" onclick="letter('Z')">
+                      <p>Z</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyX" class="light-grey key" onclick="letter('X')">
+                      <p>X</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyC" class="light-grey key" onclick="letter('C')">
+                      <p>C</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyV" class="light-grey key" onclick="letter('V')">
+                      <p>V</p>
+                    </div>
+                  </td>
 
-              <td>
-                <div id="key" class="light-grey">
-                  <p>B</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>N</p>
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <p>M</p>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div id="key" class="light-grey">
-                  <img src="lib/backspace.png" />
-                </div>
-              </td>
-              <td>
-                <div id="key" class="light-grey">
-                  <img src="lib/enter.png" />
-                </div>
-              </td>
-            </tr>
-          </table>
-        </td>
-        <td></td>
-      </tr>
-    </table>
+                  <td>
+                    <div id="keyB" class="light-grey key" onclick="letter('B')">
+                      <p>B</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyN" class="light-grey key" onclick="letter('N')">
+                      <p>N</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="keyM" class="light-grey key" onclick="letter('M')">
+                      <p>M</p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div id="key" class="light-grey key" onclick="backspace()">
+                      <img src="lib/backspace.png" />
+                    </div>
+                  </td>
+                  <td>
+                    <div id="key" class="light-grey key" onclick="enter()">
+                      <img src="lib/enter.png" />
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+      <div id="black-overlay" class="hide" onclick="dispose()"></div>
+      <div id="result" class="hide">
+        <h1>You lose!</h1>
+        <p id="resultTop">The word was</p>
+        <p id="time">FIELD</p>
+        <p id="resultBottom"></p>
+        <button onclick="reset()">Play again!</button>
+      </div>
+    </div>
   </body>
 </html>

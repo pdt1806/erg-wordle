@@ -1,11 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Noto+Sans:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Noto+Sans:wght@700&family=Roboto&display=swap");
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 0;
+  padding: 0;
   font-family: "Roboto", sans-serif;
 }
 
@@ -21,7 +18,7 @@ h1 {
   font-weight: 300;
   font-size: 60px;
   margin: 0;
-  padding: 10px 0 20px 0;
+  padding: 10px 0 0 0;
 }
 
 header img {
@@ -42,7 +39,168 @@ a {
   color: black;
 }
 
+.hide {
+  visibility: hidden;
+}
+
+.othercolumn h2 {
+  margin: 10px 0 20px 0;
+}
+
+@keyframes flipFromBottom {
+  0% {
+    transform: perspective(400px) rotateX(100deg);
+  }
+  100% {
+    transform: perspective(400px) rotateX(0);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(5px);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInForBlackOverlay {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeOut {
+  animation: fadeOut 0.2s ease-out;
+}
+
+.fadeInForBlackOverlay {
+  animation: fadeInForBlackOverlay 0.5s ease-out;
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.shake {
+  animation: shake 0.3s ease-out;
+}
+
+.zoomOut {
+  animation: zoomOut 0.1s ease-out;
+}
+
+#black-overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.5;
+}
+
+#result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  transform: translate(-50%, 50%);
+  background-color: white;
+  text-align: center;
+  position: absolute;
+  border-radius: 50px;
+  left: 50%;
+  top: 50%;
+  width: 40vw;
+  height: 50vh;
+}
+
+#result h1 {
+  margin: 30px 0 5px 0;
+  padding-bottom: 30px;
+  border-bottom: 1px solid black;
+  width: 75%;
+}
+
+#result p {
+  margin: 10px;
+  font-size: 30px;
+}
+
+#time {
+  font-weight: bold;
+  color: green;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0 30px 0;
+  font-size: 20px;
+  font-family: "Noto Sans", sans-serif;
+  background-color: gold;
+}
+
+button:active {
+  background-color: rgb(219, 186, 0);
+}
+
 #main {
+  position: relative;
+  width: 100%;
+}
+
+.mainpage {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#mainLayout {
   table-layout: fixed;
   width: 90%;
 }
@@ -77,13 +235,17 @@ li {
   text-align: center;
 }
 
+.othercolumn p {
+  margin: 10px 0 10px 0;
+}
+
 .social {
   display: flex;
   flex-direction: column;
   align-items: start;
 }
 
-#box {
+.box {
   border-radius: 5%;
   height: 60px;
   width: 60px;
@@ -92,7 +254,7 @@ li {
   position: relative;
 }
 
-#box p {
+.box p {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -102,7 +264,8 @@ li {
   font-family: "Noto Sans", sans-serif;
 }
 
-#key {
+.key {
+  cursor: pointer;
   border-radius: 5%;
   height: 10px;
   width: 35px;
@@ -112,7 +275,7 @@ li {
   outline: none;
 }
 
-#key p {
+.key p {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -122,39 +285,55 @@ li {
   font-family: "Noto Sans", sans-serif;
 }
 
-#key img {
+.key p::selection {
+  background-color: transparent;
+}
+
+.key p::-moz-selection {
+  background-color: transparent;
+}
+
+.key p::-webkit-selection {
+  background-color: transparent;
+}
+
+.key img {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
   width: 20px;
+  filter: invert(1);
 }
 
 .light-grey {
-  background-color: rgb(167, 167, 167);
-  color: white;
+  background-color: rgb(218, 218, 218);
+  color: black;
 }
 
 .grey {
+  animation: flipFromBottom 0.5s ease-out;
   background-color: grey;
   color: white;
 }
 
 .green {
+  animation: flipFromBottom 0.5s ease-out;
   background-color: rgb(0, 179, 0);
   color: white;
 }
 
 .yellow {
+  animation: flipFromBottom 0.5s ease-out;
   background-color: rgb(192, 163, 0);
   color: white;
 }
 
 .none {
-  box-sizing: border-box;
+  outline-offset: -2px;
   background-color: white;
-  border: 2px solid black;
+  outline: 2px solid black;
   color: black;
 }
 
@@ -162,7 +341,7 @@ li {
   margin-left: auto;
   margin-right: auto;
   border-collapse: separate;
-  border-spacing: 0.2em 0.5em;
+  border-spacing: 0.2em;
 }
 
 #keyboard {
