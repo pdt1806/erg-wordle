@@ -2,8 +2,10 @@
 <html>
   <head>
     <title>ERG Wordle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="script.js"></script>
+    <script src="responsive.js"></script>
     <link rel="icon" href="lib/icon.png" />
   </head>
   <body>
@@ -24,168 +26,155 @@
           </tr>
           <tr>
             <td class="othercolumn">
-              <div id="myinfo">
-                <h2>Find me at</h2>
-                <div class="social">
-                  <a
-                    class="oneline"
-                    href="https://github.com/pdt1806"
-                    target="_blank"
-                  >
-                    <img src="lib/github.svg" alt="GitHub" />
-                    <p>pdt1806</p>
-                  </a>
-                  <div class="oneline">
-                    <img src="lib/discord.svg" alt="Discord" />
-                    <p>pdteggman</p>
+              <div id="leftCol">
+                <div id="myinfo">
+                  <h2>Find me at</h2>
+                  <div class="social">
+                    <a
+                      class="oneline"
+                      href="https://github.com/pdt1806"
+                      target="_blank"
+                    >
+                      <img src="lib/github.svg" alt="GitHub" />
+                      <p>pdt1806</p>
+                    </a>
+                    <div class="oneline">
+                      <img src="lib/discord.svg" alt="Discord" />
+                      <p>pdteggman</p>
+                    </div>
+                    <a
+                      class="oneline"
+                      href="https://facebook.com/pdteggman"
+                      target="_blank"
+                    >
+                      <img src="lib/facebook.svg" alt="Facebook" />
+                      <p>Phúc Đầu Trứng</p>
+                    </a>
                   </div>
-                  <a
-                    class="oneline"
-                    href="https://facebook.com/pdteggman"
-                    target="_blank"
-                  >
-                    <img src="lib/facebook.svg" alt="Facebook" />
-                    <p>Phúc Đầu Trứng</p>
-                  </a>
                 </div>
-              </div>
-              <a href="https://www.buymeacoffee.com/pdteggman" target="_blank"
-                ><img
-                  src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=💕&slug=pdteggman&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff"
-              /></a>
-              <p>since this website is ad-free :33</p>
-            </td>
-            <td>
-              <div>
-                <table id="game">
-                  <tr id="row0">
-                    <td>
-                      <div id="box0" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box1" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box2" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box3" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box4" class="none box"><p></p></div>
-                    </td>
-                  </tr>
-                  <tr id="row1">
-                    <td>
-                      <div id="box5" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box6" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box7" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box8" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box9" class="none box"><p></p></div>
-                    </td>
-                  </tr>
-                  <tr id="row2">
-                    <td>
-                      <div id="box10" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box11" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box12" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box13" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box14" class="none box"><p></p></div>
-                    </td>
-                  </tr>
-                  <tr id="row3">
-                    <td>
-                      <div id="box15" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box16" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box17" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box18" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box19" class="none box"><p></p></div>
-                    </td>
-                  </tr>
-                  <tr id="row4">
-                    <td>
-                      <div id="box20" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box21" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box22" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box23" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box24" class="none box"><p></p></div>
-                    </td>
-                  </tr>
-                  <tr id="row5">
-                    <td>
-                      <div id="box25" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box26" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box27" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box28" class="none box"><p></p></div>
-                    </td>
-                    <td>
-                      <div id="box29" class="none box"><p></p></div>
-                    </td>
-                  </tr>
-                </table>
+                <div id="buymeacoffee">
+                  <a
+                    href="https://www.buymeacoffee.com/pdteggman"
+                    target="_blank"
+                    ><img
+                      src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=💕&slug=pdteggman&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff"
+                  /></a>
+                  <p>since this website is ad-free :33</p>
+                </div>
+                <a
+                  class="oneline"
+                  href="https://bennynguyen.us/"
+                  target="_blank"
+                  ><p>Check out my other works here</p>
+                  <img src="lib/redirect.png" alt="Redirect" class="redirect"
+                /></a>
               </div>
             </td>
-            <td>
-              <div class="othercolumn">
-                <h2>What makes ERG Wordle different from the others?</h2>
-                <ul>
-                  <li>
-                    The word is picked randomly, and is different everytime you
-                    play.
-                  </li>
-                  <li>
-                    There are unlimited sessions, you can play as many times as
-                    you want.
-                  </li>
-                  <li>
-                    This game is client-side, so you can play it offline by
-                    saving the website (Ctrl + S).
-                  </li>
-                </ul>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
+            <td id="maingame">
+              <table id="game">
+                <tr id="row0">
+                  <td>
+                    <div id="box0" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box1" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box2" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box3" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box4" class="none box"><p></p></div>
+                  </td>
+                </tr>
+                <tr id="row1">
+                  <td>
+                    <div id="box5" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box6" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box7" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box8" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box9" class="none box"><p></p></div>
+                  </td>
+                </tr>
+                <tr id="row2">
+                  <td>
+                    <div id="box10" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box11" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box12" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box13" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box14" class="none box"><p></p></div>
+                  </td>
+                </tr>
+                <tr id="row3">
+                  <td>
+                    <div id="box15" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box16" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box17" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box18" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box19" class="none box"><p></p></div>
+                  </td>
+                </tr>
+                <tr id="row4">
+                  <td>
+                    <div id="box20" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box21" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box22" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box23" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box24" class="none box"><p></p></div>
+                  </td>
+                </tr>
+                <tr id="row5">
+                  <td>
+                    <div id="box25" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box26" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box27" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box28" class="none box"><p></p></div>
+                  </td>
+                  <td>
+                    <div id="box29" class="none box"><p></p></div>
+                  </td>
+                </tr>
+              </table>
               <table id="keyboard">
                 <tr>
                   <td>
@@ -340,18 +329,34 @@
                 </tr>
               </table>
             </td>
-            <td></td>
+            <td class="othercolumn">
+              <h2>What makes ERG Wordle different from the others?</h2>
+              <ul>
+                <li>
+                  The word is picked randomly, and is different everytime you
+                  play.
+                </li>
+                <li>
+                  There are unlimited sessions, you can play as many times as
+                  you want.
+                </li>
+                <li>
+                  This game is client-side, so you can play it offline by saving
+                  the website (Ctrl + S).
+                </li>
+              </ul>
+            </td>
           </tr>
         </table>
       </div>
       <div id="black-overlay" class="hide" onclick="dispose()"></div>
-      <div id="result" class="hide">
-        <h1>You lose!</h1>
-        <p id="resultTop">The word was</p>
-        <p id="time">FIELD</p>
-        <p id="resultBottom"></p>
-        <button onclick="reset()">Play again!</button>
-      </div>
+    </div>
+    <div id="result" class="hide">
+      <h1>You lose!</h1>
+      <p id="resultTop">The word was</p>
+      <p id="time">FIELD</p>
+      <p id="resultBottom"></p>
+      <button onclick="reset()">Play again!</button>
     </div>
   </body>
 </html>

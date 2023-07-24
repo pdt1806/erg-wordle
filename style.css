@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Noto+Sans:wght@700&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Noto+Sans:wght@700&family=Roboto&display=swap&family=Carter+One&display=swap'");
 
 body {
   margin: 0;
@@ -14,11 +14,14 @@ header {
 }
 
 h1 {
-  font-family: "Lilita One", cursive;
+  font-family: "Carter One", cursive;
   font-weight: 300;
   font-size: 60px;
   margin: 0;
-  padding: 10px 0 0 0;
+}
+
+#fault {
+  margin: 10px 0 10px 0;
 }
 
 header img {
@@ -32,6 +35,11 @@ header img {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.redirect {
+  width: 20px;
+  margin: 0 10px 0 10px;
 }
 
 a {
@@ -110,6 +118,22 @@ a {
   }
 }
 
+@keyframes win {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.win {
+  animation: win 0.5s ease-out;
+}
+
 .fadeOut {
   animation: fadeOut 0.2s ease-out;
 }
@@ -131,9 +155,10 @@ a {
 }
 
 #black-overlay {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 100%;
   background-color: black;
   opacity: 0.5;
 }
@@ -143,13 +168,13 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  transform: translate(-50%, 50%);
   background-color: white;
   text-align: center;
   position: absolute;
-  border-radius: 50px;
-  left: 50%;
   top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50px;
   width: 40vw;
   height: 50vh;
 }
@@ -159,14 +184,16 @@ a {
   padding-bottom: 30px;
   border-bottom: 1px solid black;
   width: 75%;
+  font-family: "Noto Sans", sans-serif;
 }
 
 #result p {
-  margin: 10px;
+  margin: 3px 0 0 0;
   font-size: 30px;
 }
 
 #time {
+  font-size: 45px;
   font-weight: bold;
   color: green;
 }
@@ -220,7 +247,7 @@ li {
   display: flex;
   flex-direction: column;
   align-items: start;
-  margin-bottom: 50px;
+  width: max-content;
 }
 
 #myinfo img {
@@ -236,7 +263,7 @@ li {
 }
 
 .othercolumn p {
-  margin: 10px 0 10px 0;
+  margin: 12px 0 12px 0;
 }
 
 .social {
@@ -324,6 +351,11 @@ li {
   color: white;
 }
 
+.greenWithoutAnimation {
+  background-color: rgb(0, 179, 0);
+  color: white;
+}
+
 .yellow {
   animation: flipFromBottom 0.5s ease-out;
   background-color: rgb(192, 163, 0);
@@ -333,7 +365,7 @@ li {
 .none {
   outline-offset: -2px;
   background-color: white;
-  outline: 2px solid black;
+  outline: 2px solid grey;
   color: black;
 }
 
@@ -361,4 +393,56 @@ li {
 #keyboard td {
   margin-left: 1px;
   margin-right: 1px;
+}
+
+#buymeacoffee {
+  margin: 40px 0 40px 0;
+}
+
+#leftCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1366px) {
+  #result h1 {
+    font-size: 45px;
+  }
+
+  #result p {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 1366px) and (min-width: 1001px) {
+  body {
+    zoom: 85%;
+  }
+}
+
+@media only screen and (max-width: 1280px) and (min-width: 1001px) {
+  body {
+    zoom: 80%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  #mainLayout tbody {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    width: 100%;
+  }
+
+  #maingame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-row: -1;
+  }
+
+  #result {
+    height: 400px;
+  }
 }

@@ -1,3 +1,4 @@
+var gameStarted = false;
 var currentBox = -1;
 var row = 0;
 
@@ -47,9 +48,12 @@ const enter = async (key = "Enter") => {
 };
 
 const letter = (key) => {
+  if (!gameStarted) {
+    gameStarted = true;
+    window.start = Date.now();
+  }
   if (/^[a-zA-Z]$/.test(key) && currentBox < row * 5 + 4) {
     currentBox++;
-
     document.getElementById("box" + currentBox).querySelector("p").textContent =
       key.toUpperCase();
     document.getElementById("box" + currentBox).classList.add("zoomOut");
@@ -120,7 +124,20 @@ const checkWord = async (value) => {
     await sleep(400);
   }
   if (value === window.word) {
-    result(true);
+    const totalTime = Date.now() - window.start;
+    for (let i = 0; i < 5; i++) {
+      document
+        .getElementById("box" + (row * 5 + i))
+        .classList.remove("zoomOut");
+      document
+        .getElementById("box" + (row * 5 + i))
+        .classList.add("greenWithoutAnimation");
+      document.getElementById("box" + (row * 5 + i)).classList.remove("green");
+      document.getElementById("box" + (row * 5 + i)).classList.add("win");
+      await sleep(100);
+    }
+    await sleep(1000);
+    result(true, totalTime);
     return;
   }
   if (row === 5 && value !== window.word) {
@@ -161,7 +178,7 @@ const sleep = (ms) => {
   return new Promise((resolve) => setTimeout(resolve, ms || DEF_DELAY));
 };
 
-const result = (status) => {
+const result = (status, totalTime = 0) => {
   if (!status) {
     document.getElementById("result").querySelector("h1").textContent =
       "You lose!";
@@ -176,10 +193,15 @@ const result = (status) => {
     document.getElementById("result").classList.add("fadeIn");
     return;
   }
+  const seconds = Math.floor(totalTime / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const time = `${
+    minutes !== 0 ? minutes + ` minute${minutes > 1 ? "s" : ""} and ` : ""
+  } ${seconds % 60} second${seconds % 60 > 1 ? "s" : ""}`;
   document.getElementById("result").querySelector("h1").textContent =
     "You win!";
   document.getElementById("resultTop").textContent = "It took you";
-  document.getElementById("time").textContent = "3 minutes and 20 seconds";
+  document.getElementById("time").textContent = time;
   document.getElementById("resultBottom").textContent = "to guess the word!";
   document.getElementById("black-overlay").classList.remove("hide");
   document.getElementById("result").classList.remove("hide");
@@ -202,12 +224,17 @@ const dispose = async () => {
 };
 
 const reset = async () => {
+  gameStarted = false;
   window.word = "";
   window.words = [];
   pick_word();
   row = 0;
   currentBox = -1;
   for (let i = 0; i < 30; i++) {
+    document
+      .getElementById("box" + i)
+      .classList.remove("greenWithoutAnimation");
+    document.getElementById("box" + i).classList.remove("win");
     document.getElementById("box" + i).classList.remove("zoomOut");
     document.getElementById("box" + i).classList.remove("green");
     document.getElementById("box" + i).classList.remove("yellow");
