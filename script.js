@@ -2,21 +2,6 @@ var gameStarted = false;
 var currentBox = -1;
 var row = 0;
 
-console.log(`
-██╗    ██╗ ██████╗ ██████╗ ██████╗ ██╗     ███████╗
-██║    ██║██╔═══██╗██╔══██╗██╔══██╗██║     ██╔════╝
-██║ █╗ ██║██║   ██║██████╔╝██║  ██║██║     █████╗  
-██║███╗██║██║   ██║██╔══██╗██║  ██║██║     ██╔══╝  
-╚███╔███╔╝╚██████╔╝██║  ██║██████╔╝███████╗███████╗
- ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚══════╝╚══════╝
-                                                                            
-                                  
-If you're interested in the source code, you can find it here:
-https://github.com/pdt1806/erg-wordle
-
-Please don't cheat using this console, it ruins the fun!
-`);
-
 const unfocus = () => {
   document.activeElement.blur();
 };
@@ -148,6 +133,23 @@ const checkWord = async (value) => {
     }
     await sleep(400);
   }
+  for (let j = 0; j < keysList.length; j++) {
+    if (keysList[j].querySelector("p").textContent === window.word.charAt(j)) {
+      keysList[j].classList.remove("light-grey");
+      keysList[j].classList.remove("yellow");
+      keysList[j].classList.add("green");
+    } else if (
+      wordDic.hasOwnProperty(keysList[j].querySelector("p").textContent)
+    ) {
+      keysList[j].classList.remove("light-grey");
+      keysList[j].classList.contains("green")
+        ? null
+        : keysList[j].classList.add("yellow");
+    } else {
+      keysList[j].classList.remove("light-grey");
+      keysList[j].classList.add("grey");
+    }
+  }
   if (value === window.word) {
     const totalTime = Date.now() - window.start;
     for (let i = 0; i < 5; i++) {
@@ -170,23 +172,6 @@ const checkWord = async (value) => {
     return;
   }
   row++;
-  for (let j = 0; j < keysList.length; j++) {
-    if (keysList[j].querySelector("p").textContent === window.word.charAt(j)) {
-      keysList[j].classList.remove("light-grey");
-      keysList[j].classList.remove("yellow");
-      keysList[j].classList.add("green");
-    } else if (
-      wordDic.hasOwnProperty(keysList[j].querySelector("p").textContent)
-    ) {
-      keysList[j].classList.remove("light-grey");
-      keysList[j].classList.contains("green")
-        ? null
-        : keysList[j].classList.add("yellow");
-    } else {
-      keysList[j].classList.remove("light-grey");
-      keysList[j].classList.add("grey");
-    }
-  }
 };
 
 const charcount = (word, letter) => {
@@ -204,30 +189,25 @@ const sleep = (ms) => {
 };
 
 const result = (status, totalTime = 0) => {
-  if (!status) {
-    document.getElementById("result").querySelector("h1").textContent =
-      "You lose!";
-    document.getElementById("resultTop").textContent = "The word was";
-    document.getElementById("time").textContent = window.word;
-    document.getElementById("resultBottom").textContent = "";
-    document.getElementById("black-overlay").classList.remove("hide");
-    document.getElementById("result").classList.remove("hide");
-    document
-      .getElementById("black-overlay")
-      .classList.add("fadeInForBlackOverlay");
-    document.getElementById("result").classList.add("fadeIn");
-    return;
+  if (status) {
+    const seconds = Math.floor(totalTime / 1000);
+    const minutes = Math.floor(seconds / 60);
+    window.time = `${
+      minutes !== 0 ? minutes + ` minute${minutes > 1 ? "s" : ""} and ` : ""
+    } ${seconds % 60} second${seconds % 60 > 1 ? "s" : ""}`;
   }
-  const seconds = Math.floor(totalTime / 1000);
-  const minutes = Math.floor(seconds / 60);
-  const time = `${
-    minutes !== 0 ? minutes + ` minute${minutes > 1 ? "s" : ""} and ` : ""
-  } ${seconds % 60} second${seconds % 60 > 1 ? "s" : ""}`;
-  document.getElementById("result").querySelector("h1").textContent =
-    "You win!";
-  document.getElementById("resultTop").textContent = "It took you";
-  document.getElementById("time").textContent = time;
-  document.getElementById("resultBottom").textContent = "to guess the word!";
+  document.getElementById("result").querySelector("h1").textContent = status
+    ? "You win!"
+    : "You lose!";
+  document.getElementById("resultTop").textContent = status
+    ? "It took you"
+    : "The word was";
+  document.getElementById("time").textContent = status
+    ? window.time
+    : window.word;
+  document.getElementById("resultBottom").textContent = status
+    ? "to guess the word!"
+    : "";
   document.getElementById("black-overlay").classList.remove("hide");
   document.getElementById("result").classList.remove("hide");
   document
@@ -256,30 +236,22 @@ const reset = async () => {
   row = 0;
   currentBox = -1;
   for (let i = 0; i < 30; i++) {
-    document
-      .getElementById("box" + i)
-      .classList.remove("greenWithoutAnimation");
-    document.getElementById("box" + i).classList.remove("win");
-    document.getElementById("box" + i).classList.remove("zoomOut");
-    document.getElementById("box" + i).classList.remove("green");
-    document.getElementById("box" + i).classList.remove("yellow");
-    document.getElementById("box" + i).classList.remove("grey");
-    document.getElementById("box" + i).classList.add("none");
-    document.getElementById("box" + i).querySelector("p").textContent = "";
+    var box = document.getElementById("box" + i);
+    box.classList.remove("greenWithoutAnimation");
+    box.classList.remove("win");
+    box.classList.remove("zoomOut");
+    box.classList.remove("green");
+    box.classList.remove("yellow");
+    box.classList.remove("grey");
+    box.classList.add("none");
+    box.querySelector("p").textContent = "";
   }
   for (let i = 0; i < 26; i++) {
-    document
-      .getElementById("key" + String.fromCharCode(65 + i))
-      .classList.remove("green");
-    document
-      .getElementById("key" + String.fromCharCode(65 + i))
-      .classList.remove("yellow");
-    document
-      .getElementById("key" + String.fromCharCode(65 + i))
-      .classList.remove("grey");
-    document
-      .getElementById("key" + String.fromCharCode(65 + i))
-      .classList.add("light-grey");
+    var key = document.getElementById("key" + String.fromCharCode(65 + i));
+    key.classList.remove("green");
+    key.classList.remove("yellow");
+    key.classList.remove("grey");
+    key.classList.add("light-grey");
   }
   dispose();
 };

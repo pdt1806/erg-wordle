@@ -1,7 +1,7 @@
 let isMoved = false;
 let clonedElement = null;
 
-function moveTds() {
+const moveTds = () => {
   const mainGameTd = document.getElementById("maingame");
   const otherColumnTd = document.querySelector(".othercolumn");
   const firstTd = otherColumnTd.querySelector("div");
@@ -14,9 +14,9 @@ function moveTds() {
     clonedElement.style.marginBottom = "40px";
     isMoved = true;
   }
-}
+};
 
-function moveBack() {
+const moveBack = () => {
   const mainGameTd = document.getElementById("maingame");
   const otherColumnTd = document.querySelector(".othercolumn");
 
@@ -26,16 +26,16 @@ function moveBack() {
     firstTd.style.display = "flex";
     isMoved = false;
   }
-}
+};
 
-function checkWidth() {
+const checkWidth = () => {
   const specificWidth = 1000;
   if (window.innerWidth <= specificWidth) {
     moveTds();
   } else {
     moveBack();
   }
-}
+};
 
 window.addEventListener("DOMContentLoaded", checkWidth);
 window.addEventListener("resize", checkWidth);
