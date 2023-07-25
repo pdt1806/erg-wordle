@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Noto+Sans:wght@700&family=Roboto&display=swap&family=Carter+One&display=swap'");
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Noto+Sans:wght@700&family=Roboto&display=swap&family=Montserrat:wght@700&display=swap'");
 
 body {
   margin: 0;
@@ -14,10 +14,10 @@ header {
 }
 
 h1 {
-  font-family: "Carter One", cursive;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 60px;
-  margin: 0;
+  margin: 5px 0 0 0;
 }
 
 #fault {
@@ -57,16 +57,19 @@ a {
 
 @keyframes flipFromBottom {
   0% {
-    transform: perspective(400px) rotateX(100deg);
+    transform: rotateX(100deg);
   }
   100% {
-    transform: perspective(400px) rotateX(0);
+    transform: rotateX(0);
   }
 }
 
 @keyframes zoomOut {
   0% {
-    transform: scale(1.2);
+    transform: scale(0.8);
+  }
+  75% {
+    transform: scale(1.1);
   }
   100% {
     transform: scale(1);
@@ -273,6 +276,7 @@ li {
 }
 
 .box {
+  background-color: rgb(252, 252, 252);
   border-radius: 5%;
   height: 60px;
   width: 60px;
@@ -302,6 +306,27 @@ li {
   outline: none;
 }
 
+.keyBig {
+  cursor: pointer;
+  border-radius: 5%;
+  height: 0px;
+  width: 45px;
+  padding-top: 100%;
+  position: relative;
+  border: none;
+  outline: none;
+}
+
+.keyBig img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  width: 20px;
+  filter: invert(1);
+}
+
 .key p {
   position: absolute;
   top: 50%;
@@ -322,16 +347,6 @@ li {
 
 .key p::-webkit-selection {
   background-color: transparent;
-}
-
-.key img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0;
-  width: 20px;
-  filter: invert(1);
 }
 
 .light-grey {
@@ -364,7 +379,12 @@ li {
 
 .none {
   outline-offset: -2px;
-  background-color: white;
+  outline: 2px solid rgb(190, 190, 190);
+  color: black;
+}
+
+.noneWithText {
+  outline-offset: -2px;
   outline: 2px solid grey;
   color: black;
 }
@@ -433,6 +453,7 @@ li {
     grid-template-columns: 1fr;
     grid-gap: 10px;
     width: 100%;
+    zoom: 95%;
   }
 
   #maingame {
@@ -444,5 +465,32 @@ li {
 
   #result {
     height: 400px;
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 405px) {
+  header h1 {
+    font-size: 45px;
+  }
+
+  header img {
+    width: 120px;
+  }
+
+  #mainLayout tbody {
+    zoom: 90%;
+  }
+}
+
+@media only screen and (max-width: 365px) {
+  #mainLayout tbody {
+    zoom: 85%;
+  }
+}
+
+@media only screen and (max-width: 325px) {
+  #mainLayout tbody {
+    zoom: 80%;
   }
 }

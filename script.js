@@ -2,8 +2,31 @@ var gameStarted = false;
 var currentBox = -1;
 var row = 0;
 
+console.log(`
+██╗    ██╗ ██████╗ ██████╗ ██████╗ ██╗     ███████╗
+██║    ██║██╔═══██╗██╔══██╗██╔══██╗██║     ██╔════╝
+██║ █╗ ██║██║   ██║██████╔╝██║  ██║██║     █████╗  
+██║███╗██║██║   ██║██╔══██╗██║  ██║██║     ██╔══╝  
+╚███╔███╔╝╚██████╔╝██║  ██║██████╔╝███████╗███████╗
+ ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚══════╝╚══════╝
+                                                                            
+                                  
+If you're interested in the source code, you can find it here:
+https://github.com/pdt1806/erg-wordle
+
+Please don't cheat using this console, the game is more fun if you don't!
+`);
+
+const unfocus = () => {
+  document.activeElement.blur();
+};
+
 const backspace = (key = "Backspace") => {
   if (key === "Backspace" && currentBox > -1 && currentBox > row * 5 - 1) {
+    document.getElementById("box" + currentBox).classList.add("none");
+    document
+      .getElementById("box" + currentBox)
+      .classList.remove("noneWithText");
     document.getElementById("box" + currentBox).classList.remove("zoomOut");
     document.getElementById("box" + currentBox).querySelector("p").textContent =
       "";
@@ -56,6 +79,8 @@ const letter = (key) => {
     currentBox++;
     document.getElementById("box" + currentBox).querySelector("p").textContent =
       key.toUpperCase();
+    document.getElementById("box" + currentBox).classList.remove("none");
+    document.getElementById("box" + currentBox).classList.add("noneWithText");
     document.getElementById("box" + currentBox).classList.add("zoomOut");
   }
 };
@@ -96,7 +121,7 @@ const checkWord = async (value) => {
     var indicator = row * 5 + i;
     var element = document.getElementById("box" + indicator);
     keysList.push(document.getElementById("key" + value.charAt(i)));
-    element.classList.remove("none");
+    element.classList.remove("noneWithText");
     if (value.charAt(i) === window.word.charAt(i)) {
       wordDic[value.charAt(i)]--;
       element.classList.add("green");

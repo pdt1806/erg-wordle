@@ -34,6 +34,7 @@
                       class="oneline"
                       href="https://github.com/pdt1806"
                       target="_blank"
+                      onclick="unfocus()"
                     >
                       <img src="lib/github.svg" alt="GitHub" />
                       <p>pdt1806</p>
@@ -46,6 +47,7 @@
                       class="oneline"
                       href="https://facebook.com/pdteggman"
                       target="_blank"
+                      onclick="unfocus()"
                     >
                       <img src="lib/facebook.svg" alt="Facebook" />
                       <p>Phúc Đầu Trứng</p>
@@ -56,6 +58,7 @@
                   <a
                     href="https://www.buymeacoffee.com/pdteggman"
                     target="_blank"
+                    onclick="unfocus()"
                     ><img
                       src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=💕&slug=pdteggman&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff"
                   /></a>
@@ -65,6 +68,7 @@
                   class="oneline"
                   href="https://bennynguyen.us/"
                   target="_blank"
+                  onclick="unfocus()"
                   ><p>Check out my other works here</p>
                   <img src="lib/redirect.png" alt="Redirect" class="redirect"
                 /></a>
@@ -279,6 +283,15 @@
                 </tr>
                 <tr>
                   <td>
+                    <div
+                      id="key"
+                      class="light-grey keyBig"
+                      onclick="backspace()"
+                    >
+                      <img src="lib/backspace.png" />
+                    </div>
+                  </td>
+                  <td>
                     <div id="keyZ" class="light-grey key" onclick="letter('Z')">
                       <p>Z</p>
                     </div>
@@ -314,15 +327,12 @@
                       <p>M</p>
                     </div>
                   </td>
-                </tr>
-                <tr>
                   <td>
-                    <div id="key" class="light-grey key" onclick="backspace()">
-                      <img src="lib/backspace.png" />
-                    </div>
-                  </td>
-                  <td>
-                    <div id="key" class="light-grey key" onclick="enter()">
+                    <div
+                      id="keyEnter"
+                      class="light-grey keyBig"
+                      onclick="enter()"
+                    >
                       <img src="lib/enter.png" />
                     </div>
                   </td>
