@@ -102,6 +102,10 @@ const checkWord = async (value) => {
     );
   }
 
+  if (value === window.word) {
+    window.totalTime = Date.now() - window.start;
+  }
+
   for (let i = 0; i < 5; i++) {
     var indicator = row * 5 + i;
     var element = document.getElementById("box" + indicator);
@@ -131,7 +135,7 @@ const checkWord = async (value) => {
     } else {
       element.classList.add("grey");
     }
-    await sleep(400);
+    await sleep(345);
   }
   for (let j = 0; j < keysList.length; j++) {
     if (keysList[j].querySelector("p").textContent === window.word.charAt(j)) {
@@ -151,7 +155,6 @@ const checkWord = async (value) => {
     }
   }
   if (value === window.word) {
-    const totalTime = Date.now() - window.start;
     for (let i = 0; i < 5; i++) {
       document
         .getElementById("box" + (row * 5 + i))
@@ -164,7 +167,7 @@ const checkWord = async (value) => {
       await sleep(100);
     }
     await sleep(1000);
-    result(true, totalTime);
+    result(true, window.totalTime);
     return;
   }
   if (row === 5 && value !== window.word) {
