@@ -20,7 +20,7 @@ const backspace = (key = "Backspace") => {
 };
 
 const enter = async (key = "Enter") => {
-  if (key === "Enter" && currentBox > -1) {
+  if (key === "Enter" && currentBox > -1 && gameStarted == true) {
     var fault = document.getElementById("fault");
     var word = "";
 
@@ -56,7 +56,7 @@ const enter = async (key = "Enter") => {
 };
 
 const letter = (key) => {
-  if (!gameStarted) {
+  if (!gameStarted && /^[a-zA-Z]$/.test(key)) {
     gameStarted = true;
     window.start = Date.now();
   }
@@ -192,6 +192,7 @@ const sleep = (ms) => {
 };
 
 const result = (status, totalTime = 0) => {
+  gameStarted = false;
   if (status) {
     const seconds = Math.floor(totalTime / 1000);
     const minutes = Math.floor(seconds / 60);
