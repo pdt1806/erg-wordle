@@ -178,8 +178,8 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50px;
+  height: 400px;
   width: 40vw;
-  height: 50vh;
 }
 
 #result h1 {
@@ -435,6 +435,10 @@ li {
 @media only screen and (max-width: 1366px) {
   #result h1 {
     font-size: 45px;
+  }
+
+  #result {
+    height: 370px;
   }
 
   #result p {
