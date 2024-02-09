@@ -838,6 +838,7 @@ hoses
 hosts
 hound
 hours
+house
 hover
 howdy
 hubby
