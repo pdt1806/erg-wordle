@@ -177,7 +177,7 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 50px;
+  border-radius: 45px;
   height: 400px;
   width: 40vw;
 }
@@ -206,7 +206,7 @@ button {
   border: none;
   outline: none;
   border-radius: 20px;
-  padding: 10px;
+  padding: 10px 15px 10px 15px;
   margin: 10px 0 30px 0;
   font-size: 20px;
   font-family: "Noto Sans", sans-serif;
