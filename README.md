@@ -1,4 +1,5 @@
-# Egg Recreates Game - Wordle
+<p align="center"><img src="https://wordle.bennynguyen.dev/lib/icon.png" width="200px" /></p>
+<h1 align="center"><a href="https://wordle.bennynguyen.dev" target="_blank">ERG Wordle</a></h1>
 
 This is a recreation of the game Wordle. The game is a word puzzle game where the player has to guess a 5-letter word in 6 tries. The game will give feedback on the letters that are correct and in the right position, and the letters that are correct but in the wrong position. The game will also give feedback on the letters that are not in the word at all.
 
