@@ -141,16 +141,19 @@ const checkWord = async (value) => {
     if (keysList[j].querySelector("p").textContent === window.word.charAt(j)) {
       keysList[j].classList.remove("light-grey");
       keysList[j].classList.remove("yellow");
+      await sleep(7); // to make sure the animation runs
       keysList[j].classList.add("green");
     } else if (
       wordDic.hasOwnProperty(keysList[j].querySelector("p").textContent)
     ) {
       keysList[j].classList.remove("light-grey");
+      await sleep(7);
       keysList[j].classList.contains("green")
         ? null
         : keysList[j].classList.add("yellow");
     } else {
       keysList[j].classList.remove("light-grey");
+      await sleep(7);
       keysList[j].classList.add("grey");
     }
   }
