@@ -2,56 +2,62 @@ var gameStarted = false;
 var currentBox = -1;
 var row = 0;
 
+const sleep = (ms) => {
+  return new Promise((resolve) => setTimeout(resolve, ms || 1000));
+};
+
 const unfocus = () => {
   document.activeElement.blur();
 };
 
 const backspace = (key = "Backspace") => {
-  if (key === "Backspace" && currentBox > -1 && currentBox > row * 5 - 1) {
-    document.getElementById("box" + currentBox).classList.add("none");
-    document
-      .getElementById("box" + currentBox)
-      .classList.remove("noneWithText");
-    document.getElementById("box" + currentBox).classList.remove("zoomOut");
-    document.getElementById("box" + currentBox).querySelector("p").textContent =
-      "";
-    currentBox--;
-  }
+  if (key != "Backspace") return;
+  if (currentBox <= row * 5 - 1) return;
+
+  document.getElementById("box" + currentBox).classList.add("none");
+  document.getElementById("box" + currentBox).classList.remove("noneWithText");
+  document.getElementById("box" + currentBox).classList.remove("zoomOut");
+  document.getElementById("box" + currentBox).querySelector("p").textContent =
+    "";
+  currentBox--;
+};
+
+const enterProcedure = async (error) => {
+  var fault = document.getElementById("fault");
+
+  fault.textContent = error;
+  fault.classList.remove("hide");
+  fault.classList.remove("fadeOut");
+  document.getElementById("row" + row).classList.add("shake");
+  await sleep(1000);
+  fault.classList.add("fadeOut");
+  await sleep(190);
+  fault.classList.add("hide");
+  document.getElementById("row" + row).classList.remove("shake");
 };
 
 const enter = async (key = "Enter") => {
-  if (key === "Enter" && currentBox > -1 && gameStarted == true) {
-    var fault = document.getElementById("fault");
-    var word = "";
+  if (key != "Enter") return;
+  if (currentBox <= -1) return;
+  if (!gameStarted) return;
 
-    const procedure = async () => {
-      fault.classList.remove("hide");
-      fault.classList.remove("fadeOut");
-      document.getElementById("row" + row).classList.add("shake");
-      await sleep(1000);
-      fault.classList.add("fadeOut");
-      await sleep(190);
-      fault.classList.add("hide");
-      document.getElementById("row" + row).classList.remove("shake");
-    };
+  var word = "";
 
-    for (let i = row * 5; i < row * 5 + 5; i++) {
-      word += document.getElementById("box" + i).querySelector("p").textContent;
-    }
-    if (word.length < 5 && currentBox != row * 5 - 1) {
-      fault.textContent = "Not enough letters!";
-      procedure();
-      return;
-    } else if (
-      !window.words.includes(word.toLowerCase()) &&
-      currentBox != row * 5 - 1
-    ) {
-      fault.textContent = "Not in word list!";
-      procedure();
-      return;
-    } else if (currentBox == row * 5 + 4) {
-      checkWord(word);
-    }
+  for (let i = row * 5; i < row * 5 + 5; i++) {
+    word += document.getElementById("box" + i).querySelector("p").textContent;
+  }
+
+  if ([1, 2, 3, 4].includes(word.length)) {
+    await enterProcedure("Not enough letters!");
+    return;
+  }
+  if (!window.words.includes(word.toLowerCase())) {
+    await enterProcedure("Not in word list!");
+    return;
+  }
+  if (currentBox == row * 5 + 4) {
+    await checkWord(word);
+    return;
   }
 };
 
@@ -92,6 +98,80 @@ const pick_word = () => {
 
 pick_word();
 
+let wordDic = {};
+let keysList = [];
+
+const coloringCharBox = async (i, value) => {
+  var indicator = row * 5 + i;
+  var element = document.getElementById("box" + indicator);
+  keysList.push(document.getElementById("key" + value.charAt(i)));
+  element.classList.remove("noneWithText");
+
+  if (value.charAt(i) === window.word.charAt(i)) {
+    wordDic[value.charAt(i)]--;
+    element.classList.add("green");
+    return;
+  }
+  if (wordDic.hasOwnProperty(value.charAt(i))) {
+    var isAfter = false;
+    for (let j = i + 1; j < 5; j++) {
+      if (
+        window.word.charAt(j) === value.charAt(i) &&
+        window.word.charAt(j) === value.charAt(j)
+      ) {
+        element.classList.add("grey");
+        isAfter = true;
+        break;
+      }
+    }
+    if (wordDic[value.charAt(i)] === 0) {
+      element.classList.add("grey");
+      return;
+    }
+    if (!isAfter) {
+      element.classList.add("yellow");
+      wordDic[value.charAt(i)]--;
+      return;
+    }
+  }
+  element.classList.add("grey");
+  return;
+};
+
+const coloringKeyboardBox = async (j) => {
+  if (keysList[j].querySelector("p").textContent === window.word.charAt(j)) {
+    keysList[j].classList.remove("light-grey");
+    keysList[j].classList.remove("yellow");
+    await sleep(7); // to make sure the animation runs
+    keysList[j].classList.add("green");
+    return;
+  }
+  if (wordDic.hasOwnProperty(keysList[j].querySelector("p").textContent)) {
+    keysList[j].classList.remove("light-grey");
+    await sleep(7);
+    keysList[j].classList.contains("green")
+      ? null
+      : keysList[j].classList.add("yellow");
+    return;
+  }
+  keysList[j].classList.remove("light-grey");
+  await sleep(7);
+  keysList[j].classList.add("grey");
+  return;
+};
+
+const winningAnimation = async () => {
+  for (let i = 0; i < 5; i++) {
+    document.getElementById("box" + (row * 5 + i)).classList.remove("zoomOut");
+    document
+      .getElementById("box" + (row * 5 + i))
+      .classList.add("greenWithoutAnimation");
+    document.getElementById("box" + (row * 5 + i)).classList.remove("green");
+    document.getElementById("box" + (row * 5 + i)).classList.add("win");
+    await sleep(100);
+  }
+};
+
 const checkWord = async (value) => {
   wordDic = {};
   keysList = [];
@@ -107,68 +187,16 @@ const checkWord = async (value) => {
   }
 
   for (let i = 0; i < 5; i++) {
-    var indicator = row * 5 + i;
-    var element = document.getElementById("box" + indicator);
-    keysList.push(document.getElementById("key" + value.charAt(i)));
-    element.classList.remove("noneWithText");
-    if (value.charAt(i) === window.word.charAt(i)) {
-      wordDic[value.charAt(i)]--;
-      element.classList.add("green");
-    } else if (wordDic.hasOwnProperty(value.charAt(i))) {
-      var isAfter = false;
-      for (let j = i + 1; j < 5; j++) {
-        if (
-          window.word.charAt(j) === value.charAt(i) &&
-          window.word.charAt(j) === value.charAt(j)
-        ) {
-          element.classList.add("grey");
-          isAfter = true;
-          break;
-        }
-      }
-      if (wordDic[value.charAt(i)] === 0) {
-        element.classList.add("grey");
-      } else if (!isAfter) {
-        element.classList.add("yellow");
-        wordDic[value.charAt(i)]--;
-      }
-    } else {
-      element.classList.add("grey");
-    }
+    await coloringCharBox(i, value);
     await sleep(345);
   }
+
   for (let j = 0; j < keysList.length; j++) {
-    if (keysList[j].querySelector("p").textContent === window.word.charAt(j)) {
-      keysList[j].classList.remove("light-grey");
-      keysList[j].classList.remove("yellow");
-      await sleep(7); // to make sure the animation runs
-      keysList[j].classList.add("green");
-    } else if (
-      wordDic.hasOwnProperty(keysList[j].querySelector("p").textContent)
-    ) {
-      keysList[j].classList.remove("light-grey");
-      await sleep(7);
-      keysList[j].classList.contains("green")
-        ? null
-        : keysList[j].classList.add("yellow");
-    } else {
-      keysList[j].classList.remove("light-grey");
-      await sleep(7);
-      keysList[j].classList.add("grey");
-    }
+    await coloringKeyboardBox(j);
   }
+
   if (value === window.word) {
-    for (let i = 0; i < 5; i++) {
-      document
-        .getElementById("box" + (row * 5 + i))
-        .classList.remove("zoomOut");
-      document
-        .getElementById("box" + (row * 5 + i))
-        .classList.add("greenWithoutAnimation");
-      document.getElementById("box" + (row * 5 + i)).classList.remove("green");
-      document.getElementById("box" + (row * 5 + i)).classList.add("win");
-      await sleep(100);
-    }
+    await winningAnimation();
     await sleep(1000);
     result(true, window.totalTime);
     return;
@@ -190,18 +218,14 @@ const charcount = (word, letter) => {
   return letter_Count;
 };
 
-const sleep = (ms) => {
-  return new Promise((resolve) => setTimeout(resolve, ms || DEF_DELAY));
-};
-
 const result = (status, totalTime = 0) => {
   gameStarted = false;
   if (status) {
     const seconds = Math.floor(totalTime / 1000);
     const minutes = Math.floor(seconds / 60);
     window.time = `${
-      minutes !== 0 ? minutes + ` minute${minutes > 1 ? "s" : ""} and ` : ""
-    } ${seconds % 60} second${seconds % 60 > 1 ? "s" : ""}`;
+      minutes !== 0 ? minutes + ` minute${minutes == 1 ? "" : "s"} and ` : ""
+    } ${seconds % 60} second${seconds % 60 == 1 ? "" : "s"}`;
   }
   document.getElementById("result").querySelector("h1").textContent = status
     ? "You win!"
