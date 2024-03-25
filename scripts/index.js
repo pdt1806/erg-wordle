@@ -245,6 +245,8 @@ const result = (status, totalTime = 0) => {
     .getElementById("black-overlay")
     .classList.add("fadeInForBlackOverlay");
   document.getElementById("result").classList.add("fadeIn");
+  document.getElementById("keyboard").style.display = "none";
+  document.getElementById("restart").style.display = "block";
 };
 
 const dispose = async () => {
@@ -260,6 +262,8 @@ const dispose = async () => {
 };
 
 const reset = async () => {
+  document.getElementById("restart").style.display = "none";
+  document.getElementById("keyboard").style.display = "table";
   gameStarted = false;
   window.word = "";
   window.words = [];

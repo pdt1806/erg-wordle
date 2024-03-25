@@ -27,7 +27,10 @@
       property="og:description"
       content="Challenge your word-solving skills and see if you can crack the 5-letter word in just 6 tries. Test your vocabulary and logic to unravel the hidden word."
     />
-    <meta property="og:image" content="https://wordle.bennynguyen.dev/lib/wordle-showcase.png" />
+    <meta
+      property="og:image"
+      content="https://wordle.bennynguyen.dev/lib/wordle-showcase.png"
+    />
     <meta property="og:url" content="https://wordle.bennynguyen.dev" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@pdteggman" />
@@ -36,18 +39,26 @@
       name="twitter:description"
       content="Challenge your word-solving skills and see if you can crack the 5-letter word in just 6 tries. Test your vocabulary and logic to unravel the hidden word."
     />
-    <meta name="twitter:image" content="https://wordle.bennynguyen.dev/lib/wordle-showcase.png" />
+    <meta
+      name="twitter:image"
+      content="https://wordle.bennynguyen.dev/lib/wordle-showcase.png"
+    />
   </head>
   <body>
     <div id="main">
       <div class="mainpage">
         <header>
-          <img src="lib/ERG-brand-black.png" alt="A game of Egg Recreates Game" />
+          <img
+            src="lib/ERG-brand-black.png"
+            alt="A game of Egg Recreates Game"
+          />
           <h1>Wordle</h1>
         </header>
         <table id="mainLayout">
           <tr>
-            <h2 id="fault" class="hide" style="color: red">Not in word list!</h2>
+            <h2 id="fault" class="hide" style="color: red">
+              Not in word list!
+            </h2>
           </tr>
           <tr>
             <td class="othercolumn">
@@ -55,20 +66,40 @@
                 <div id="myinfo">
                   <h2>Find me at</h2>
                   <div class="social">
-                    <a class="oneline" href="https://github.com/pdt1806" target="_blank" onclick="unfocus()">
+                    <a
+                      class="oneline"
+                      href="https://github.com/pdt1806"
+                      target="_blank"
+                      onclick="unfocus()"
+                    >
                       <img src="lib/social/github.svg" alt="GitHub" />
                       <p>pdt1806</p>
                     </a>
-                    <a class="oneline" href="https://instagram.com/benny_ng08" target="_blank" onclick="unfocus()">
+                    <a
+                      class="oneline"
+                      href="https://instagram.com/benny_ng08"
+                      target="_blank"
+                      onclick="unfocus()"
+                    >
                       <img src="lib/social/instagram.svg" alt="Instagram" />
                       <p>benny_ng08</p>
                     </a>
-                    <a class="oneline" href="https://facebook.com/pdteggman" target="_blank" onclick="unfocus()">
+                    <a
+                      class="oneline"
+                      href="https://facebook.com/pdteggman"
+                      target="_blank"
+                      onclick="unfocus()"
+                    >
                       <img src="lib/social/facebook.svg" alt="Facebook" />
                       <p>Phúc Đầu Trứng</p>
                     </a>
 
-                    <a class="oneline" href="https://x.com/pdteggman" target="_blank" onclick="unfocus()">
+                    <a
+                      class="oneline"
+                      href="https://x.com/pdteggman"
+                      target="_blank"
+                      onclick="unfocus()"
+                    >
                       <img src="lib/social/x.svg" alt="X" />
                       <p>pdteggman</p>
                     </a>
@@ -84,21 +115,31 @@
                   </div>
                 </div>
                 <div id="donation">
-                  <a href="https://github.com/sponsors/pdt1806" target="_blank" onclick="unfocus()"
+                  <a
+                    href="https://github.com/sponsors/pdt1806"
+                    target="_blank"
+                    onclick="unfocus()"
                     ><img
                       src="/lib/github-sponsors.png"
                       alt="GitHub Sponsors"
                       height="50px"
                       style="margin-bottom: 10px"
                   /></a>
-                  <a href="https://www.buymeacoffee.com/pdteggman" target="_blank" onclick="unfocus()"
+                  <a
+                    href="https://www.buymeacoffee.com/pdteggman"
+                    target="_blank"
+                    onclick="unfocus()"
                     ><img
                       src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=pdteggman&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff"
                       alt="Buy me a coffee"
                   /></a>
                   <p>since this website is ad-free :33</p>
                 </div>
-                <a class="oneline" href="https://bennynguyen.dev/" target="_blank" onclick="unfocus()"
+                <a
+                  class="oneline"
+                  href="https://bennynguyen.dev/"
+                  target="_blank"
+                  onclick="unfocus()"
                   ><p>More about me and my other works</p>
                   <img src="lib/redirect.png" alt="Redirect" class="redirect"
                 /></a>
@@ -313,7 +354,11 @@
                 </tr>
                 <tr>
                   <td>
-                    <div id="key" class="light-grey keyBig" onclick="backspace()">
+                    <div
+                      id="key"
+                      class="light-grey keyBig"
+                      onclick="backspace()"
+                    >
                       <img src="lib/keyboard/backspace.png" />
                     </div>
                   </td>
@@ -354,20 +399,39 @@
                     </div>
                   </td>
                   <td>
-                    <div id="keyEnter" class="light-grey keyBig" onclick="enter()">
+                    <div
+                      id="keyEnter"
+                      class="light-grey keyBig"
+                      onclick="enter()"
+                    >
                       <img src="lib/keyboard/enter.png" />
                     </div>
                   </td>
                 </tr>
               </table>
+              <button onclick="reset()" class="" id="restart">
+                Play again
+              </button>
             </td>
             <td class="othercolumn">
               <h2>What makes ERG Wordle different from the original?</h2>
               <ul>
-                <li>The word is picked randomly, and is different everytime you play.</li>
-                <li>There are unlimited sessions, you can play as many times as you want.</li>
-                <li>It counts the time you take to guess the word, and shows it when you win.</li>
-                <li>This game is light-weight (with no ads), so it loads really fast.</li>
+                <li>
+                  The word is picked randomly, and is different everytime you
+                  play.
+                </li>
+                <li>
+                  There are unlimited sessions, you can play as many times as
+                  you want.
+                </li>
+                <li>
+                  It counts the time you take to guess the word, and shows it
+                  when you win.
+                </li>
+                <li>
+                  This game is light-weight (with no ads), so it loads really
+                  fast.
+                </li>
               </ul>
             </td>
           </tr>
@@ -380,7 +444,7 @@
       <p id="resultTop"></p>
       <p id="time"></p>
       <p id="resultBottom"></p>
-      <button onclick="reset()">Play again!</button>
+      <button onclick="reset()">Play again</button>
     </div>
   </body>
 </html>
