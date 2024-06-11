@@ -1,0 +1,46 @@
+a {
+  color: black;
+}
+
+#result {
+  background-color: white;
+}
+
+#result h1 {
+  border-bottom: 1px solid black;
+}
+
+#time {
+  color: green;
+}
+
+.light-grey {
+  background-color: rgb(218, 218, 218);
+  color: black;
+}
+
+.grey {
+  background-color: grey;
+  color: white;
+}
+
+.none {
+  color: black;
+  outline: 2px solid rgb(190, 190, 190);
+}
+
+.noneWithText {
+  color: black;
+}
+
+.toggle button {
+  background-color: rgb(218, 218, 218);
+}
+
+.toggle button:active {
+  background-color: rgb(190, 190, 190);
+}
+
+.toggle button img {
+  filter: invert(1);
+}

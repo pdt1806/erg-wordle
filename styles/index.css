@@ -45,7 +45,6 @@ header img {
 
 a {
   text-decoration: none;
-  color: black;
 }
 
 .hide {
@@ -172,7 +171,6 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background-color: white;
   text-align: center;
   position: fixed;
   top: 50%;
@@ -187,7 +185,6 @@ a {
 #result h1 {
   margin-bottom: 5px;
   padding-bottom: 30px;
-  border-bottom: 1px solid black;
   width: 75%;
   font-family: "Noto Sans", sans-serif;
 }
@@ -200,10 +197,10 @@ a {
 #time {
   font-size: 45px;
   font-weight: bold;
-  color: green;
 }
 
-button {
+#result button,
+#restart {
   display: flex;
   margin-left: auto;
   margin-right: auto;
@@ -218,7 +215,7 @@ button {
   color: white;
 }
 
-button:active {
+#result button:active {
   background-color: #007a53;
 }
 
@@ -281,7 +278,6 @@ li {
 }
 
 .box {
-  background-color: rgb(252, 252, 252);
   border-radius: 5%;
   height: 60px;
   width: 60px;
@@ -354,15 +350,8 @@ li {
   background-color: transparent;
 }
 
-.light-grey {
-  background-color: rgb(218, 218, 218);
-  color: black;
-}
-
 .grey {
   animation: flipFromBottom 0.5s ease-out;
-  background-color: grey;
-  color: white;
 }
 
 .green {
@@ -384,14 +373,12 @@ li {
 
 .none {
   outline-offset: -2px;
-  outline: 2px solid rgb(190, 190, 190);
-  color: black;
+  outline: 2px solid grey;
 }
 
 .noneWithText {
   outline-offset: -2px;
-  outline: 2px solid grey;
-  color: black;
+  outline: 2px solid rgb(190, 190, 190);
 }
 
 #maingame {
@@ -520,4 +507,17 @@ li {
   #mainLayout tbody {
     zoom: 80%;
   }
+}
+
+.toggle {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.toggle button {
+  margin-left: 15px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  padding: 5px 10px 5px 10px;
 }

@@ -1,0 +1,64 @@
+body {
+  background-color: #151515;
+  color: white;
+}
+
+a {
+  color: white;
+}
+
+#result {
+  background-color: #151515;
+}
+
+#result h1 {
+  border-bottom: 1px solid white;
+}
+
+#time {
+  color: #00df50;
+}
+
+.box {
+  color: white;
+}
+
+.light-grey {
+  background-color: rgb(37, 37, 37);
+  color: white;
+}
+
+.grey {
+  background-color: #555;
+  color: white;
+}
+
+.none {
+  color: white;
+}
+
+.noneWithText {
+  color: white;
+}
+
+.social a img,
+header img,
+.redirect {
+  filter: invert(1);
+}
+
+.keyBig img {
+  filter: invert(0);
+}
+
+.toggle button {
+  background-color: rgb(37, 37, 37);
+}
+
+.toggle button:active {
+  background-color: rgb(55, 55, 55);
+}
+
+.toggle button img {
+  filter: invert(0);
+}

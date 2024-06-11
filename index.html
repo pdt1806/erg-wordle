@@ -6,9 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="canonical" href="https://wordle.bennynguyen.dev/" />
     <link rel="stylesheet" type="text/css" href="styles/index.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="styles/light.css"
+      id="themeStyle"
+    />
     <script src="scripts/index.js"></script>
     <script src="scripts/responsive.js"></script>
     <script src="scripts/console_noti.js"></script>
+    <script src="scripts/theme.js"></script>
     <link rel="icon" href="lib/icon.png" />
     <link rel="apple-touch-icon" href="/lib/ios-icon.png" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -63,6 +70,13 @@
           <tr>
             <td class="othercolumn">
               <div id="leftCol">
+                <div class="toggle">
+                  <p>Toggle theme</p>
+                  <button onclick="toggleTheme(); unfocus()">
+                    <img src="lib/sun.svg" id="themeIcon" />
+                  </button>
+                  <br />
+                </div>
                 <div id="myinfo">
                   <h2>Find me at</h2>
                   <div class="social">
@@ -409,9 +423,7 @@
                   </td>
                 </tr>
               </table>
-              <button onclick="reset()" class="" id="restart">
-                Play again
-              </button>
+              <button onclick="reset()" id="restart">Play again</button>
             </td>
             <td class="othercolumn">
               <h2>What makes ERG Wordle different from the original?</h2>
@@ -433,6 +445,7 @@
                   fast.
                 </li>
               </ul>
+              <br />
             </td>
           </tr>
         </table>
