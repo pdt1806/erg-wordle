@@ -5,6 +5,10 @@ body {
   padding: 0;
   font-family: "Roboto", sans-serif;
   touch-action: manipulation;
+  transition:
+    background-color 0.25s ease-out,
+    color 0.25s ease-out;
+  user-select: none;
 }
 
 header {
@@ -292,7 +296,7 @@ li {
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
-  font-size: 40px;
+  font-size: 35px;
   font-family: "Noto Sans", sans-serif;
 }
 
